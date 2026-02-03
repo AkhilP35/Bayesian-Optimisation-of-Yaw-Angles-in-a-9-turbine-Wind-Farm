@@ -101,6 +101,14 @@ function total_avg_power = WFSim_simulation_use(yaw_angles)
             'outerposition',[0 0 1 1],'ToolBar','none','visible', 'on');
     end
     
+    NN = 200; % Number of simulations
+    
+    % Pre-allocate the new control input arrays to match the size
+    turbInputSet.phi = zeros(Wp.turbine.N, NN + 1); % can be set to 0 as will be set later
+    turbInputSet.CT_prime = turbInputSet.CT_prime(:, 1:(NN+1));
+    turbInputSet.t = 0:NN;
+    
+    
     % Initialize variables and figure specific to this script (power)
     powerOutput = zeros(Wp.turbine.N, NN); % Matrix to store power output at each timestep for all turbines
     
@@ -117,6 +125,7 @@ function total_avg_power = WFSim_simulation_use(yaw_angles)
     % Initialising yaw (phi)
     turbInputSet.phi = zeros(Wp.turbine.N, NN+1);
     % Define yaw for each turbine
+    %yaw_angles = 30;
     disp(yaw_angles)
     turbInputSet.phi(1:Wp.turbine.N, :) = yaw_angles;
     
