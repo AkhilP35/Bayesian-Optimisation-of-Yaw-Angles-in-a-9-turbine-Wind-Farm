@@ -1,6 +1,6 @@
 # Bayesian Optimisation of Yaw Angles in a 9-turbine Wind Farm
 
-### First Run (5 inital points and 25 iterations):
+### First Run (5 inital points and 20 iterations):
 
 Yaw Angle of 0.5858817557635484 deg
 
