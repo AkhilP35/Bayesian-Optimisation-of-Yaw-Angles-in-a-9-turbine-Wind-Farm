@@ -2,7 +2,7 @@
 Bayesian Optimisation of Yaw Angles in a 9 turbine Wind Farm
 
 First Run (5 inital points 25 iterations):
-Best result: {'yaw_angle': np.float64(0.5858817557635484)} -> 105083884.8044
+Best result: {'yaw_angle': np.float64(0.5858817557635484)} -> 104610772.9763
 
 Second Run (yaw angle boundary changed to -30 to 30, 6 initial points and 30 iterations):
 Best result: {'yaw_angle': np.float64(0.07768900951580594)} -> 104624163.2324
