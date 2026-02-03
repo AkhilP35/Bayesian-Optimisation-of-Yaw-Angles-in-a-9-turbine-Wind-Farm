@@ -34,15 +34,15 @@ def optimize_yaw():
     optimizer = BayesianOptimization(
         # Bounds of the parameter; here yaw_angle is between 0 and 30 degrees (example bounds)
         f=objective_function,
-        pbounds={"yaw_angle": (0, 30)},  # Update bounds based on your yaw angle limits
+        pbounds={"yaw_angle": (-30, 30)},  # Update bounds based on your yaw angle limits
         verbose=2,  # Verbose for logging
         random_state=42  # Ensures reproducibility
     )
 
     # Run optimization
     optimizer.maximize(
-        init_points=5,  # Number of initial points to explore randomly
-        n_iter=20  # Number of iterations for optimization
+        init_points=10,  # Number of initial points to explore randomly (default is 5)
+        n_iter=40  # Number of iterations for optimisation (default is 20)
     )
 
     # Best result
