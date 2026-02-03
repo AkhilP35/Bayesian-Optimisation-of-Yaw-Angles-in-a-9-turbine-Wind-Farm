@@ -26,5 +26,5 @@ Average Power Output of 104624161.9527 W
 *Best result: {'yaw_angle': np.float64(0.08635844528626278)} -> 104624161.9527*
 
 ### References:
-https://github.com/bayesian-optimization/BayesianOptimization
+https://github.com/bayesian-optimization/BayesianOptimization \
 https://github.com/TUDelft-DataDrivenControl/WFSim
