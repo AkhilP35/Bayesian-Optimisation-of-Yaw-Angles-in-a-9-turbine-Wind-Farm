@@ -2,28 +2,27 @@
 
 ### First Run (5 inital points and 20 iterations):
 
-Yaw Angle of 0.5858817557635484 deg
+Yaw Angle of -18.654152399049448 deg
 
-Average Power Output of 104610772.9763 W
+Average Power Output of 20,482,164.655 W (~20.5 MW)
 
-*Best result: {'yaw_angle': np.float64(0.5858817557635484)} -> 104610772.9763*
+Best result: {'yaw_angle': np.float64(-18.654152399049448)} -> 20482164.655
 
+### Second Run (7 initial points and 30 iterations):
 
-### Second Run (6 initial points and 30 iterations, yaw angle boundary changed to -30 to 30):
+Yaw Angle of -18.655720654081893 deg
 
-Yaw Angle of 0.07768900951580594 deg
+Average Power Output of 20,482,164.7119 W (~20.5 MW)
 
-Average Power Output of 104624163.2324 W
+Best result: {'yaw_angle': np.float64(-18.655720654081893)} -> 20482164.7119
 
-*Best result: {'yaw_angle': np.float64(0.07768900951580594)} -> 104624163.2324*
+### Third Run (2 initial points and 10 iterations):
 
-### Third Run (8 initial points and 40 iterations):
+Yaw Angle of -18.690696619770474 deg
 
-Yaw Angle of 0.08635844528626278 deg
+Average Power Output of 20,482,151.4202 W (~20.5 MW)
 
-Average Power Output of 104624161.9527 W
-
-*Best result: {'yaw_angle': np.float64(0.08635844528626278)} -> 104624161.9527*
+Best result: {'yaw_angle': np.float64(-18.690696619770474)} -> 20482151.4202
 
 ### References:
 https://github.com/bayesian-optimization/BayesianOptimization \
