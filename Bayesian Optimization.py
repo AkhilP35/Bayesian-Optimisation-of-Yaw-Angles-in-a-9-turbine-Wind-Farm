@@ -41,8 +41,8 @@ def optimize_yaw():
 
     # Run optimization
     optimizer.maximize(
-        init_points=10,  # Number of initial points to explore randomly (default is 5)
-        n_iter=40  # Number of iterations for optimisation (default is 20)
+        init_points=5,  # Number of initial points to explore randomly (default is 5)
+        n_iter=20  # Number of iterations for optimisation (default is 20)
     )
 
     # Best result
