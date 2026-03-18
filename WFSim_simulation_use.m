@@ -86,7 +86,13 @@ function total_avg_power = WFSim_simulation_use(yaw_angles)
     disp(' ')
     disp(['Completed ' num2str(NN) ' forward simulations. Average CPU time: ' num2str(mean(CPUTime)*10^3,3) ' ms.']);
     
-    % Return the true average power output as a double (numeric), not a string
-    total_avg_power = mean(total_power_history);
-    disp(['Average Power Output: ' num2str(total_avg_power) ' W']);
+    % Return the true average power output starting from timestep 36
+    % This ignores the first 35 timesteps while wakes propagate
+    if NN >= 36
+        total_avg_power = mean(total_power_history(36:end));
+    else
+        total_avg_power = mean(total_power_history); % Fallback if NN < 36
+    end
+    
+    disp(['Average Power Output (Timestep 36 to End): ' num2str(total_avg_power) ' W']);
 end
