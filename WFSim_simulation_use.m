@@ -34,7 +34,7 @@ function total_avg_power = WFSim_simulation_use(yaw_angles)
             'outerposition',[0 0 1 1],'ToolBar','none','visible', 'on');
     end
     
-    NN = 100; % Number of simulations
+    NN = 998; % Number of simulations
     
     turbInputSet.phi = zeros(Wp.turbine.N, NN + 1); 
     turbInputSet.CT_prime = turbInputSet.CT_prime(:, 1:(NN+1));
@@ -87,12 +87,9 @@ function total_avg_power = WFSim_simulation_use(yaw_angles)
     disp(['Completed ' num2str(NN) ' forward simulations. Average CPU time: ' num2str(mean(CPUTime)*10^3,3) ' ms.']);
     
     % Return the true average power output starting from timestep 36
-    % This ignores the first 35 timesteps while wakes propagate
-    if NN >= 36
-        total_avg_power = mean(total_power_history(36:end));
-    else
-        total_avg_power = mean(total_power_history); % Fallback if NN < 36
-    end
+    % This ignores the first 100 timesteps while wakes propagate
+    total_avg_power = mean(total_power_history(100:end));
+ 
     
-    disp(['Average Power Output (Timestep 36 to End): ' num2str(total_avg_power) ' W']);
+    disp(['Average Power Output (Timestep 100 to End): ' num2str(total_avg_power) ' W']);
 end
