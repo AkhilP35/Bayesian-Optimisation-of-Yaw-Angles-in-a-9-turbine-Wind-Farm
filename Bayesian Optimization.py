@@ -1,3 +1,4 @@
+import math
 import matlab.engine
 from bayes_opt import BayesianOptimization
 
@@ -19,8 +20,14 @@ def objective_function(yaw_angle):
         # Call MATLAB function (which now returns a double natively)
         total_avg_power = eng.WFSim_simulation_use(yaw_val)  
         
+        # Safeguard: Check if MATLAB returned NaN or Inf
+        if math.isnan(total_avg_power) or math.isinf(total_avg_power):
+            print(f"Warning: Yaw angle {yaw_angle} resulted in NaN/Inf. Penalizing.")
+            return -1e9
+
         print(f"Yaw angle {yaw_angle} -> Total Avg Power: {total_avg_power}")
         return total_avg_power  
+
     except Exception as e:
         print(f"Error evaluating yaw angle {yaw_angle}: {e}")
         # Return a heavily penalized score if the simulation fails so the optimizer avoids this region
