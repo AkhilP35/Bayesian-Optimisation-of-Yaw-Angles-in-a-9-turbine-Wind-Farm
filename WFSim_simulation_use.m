@@ -37,7 +37,7 @@ function total_avg_power = WFSim_simulation_use(yaw_angles)
     NN = 100; % Number of simulations
     
     turbInputSet.phi = zeros(Wp.turbine.N, NN + 1); 
-    turbInputSet.CT_prime = ones(Wp.turbine.N, NN + 1) * 2; 
+    turbInputSet.CT_prime = turbInputSet.CT_prime(:, 1:(NN+1));
     turbInputSet.t = 0:NN;
     
     % Initialize array to track total power over time
