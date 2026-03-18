@@ -84,7 +84,7 @@ function total_avg_power = WFSim_simulation_use(yaw_angles)
     % Simulation length, display and visualization settings
     NN = floor(turbInputSet.t(end)/Wp.sim.h); % Number of timesteps in simulation
     
-    verboseOptions.printProgress = 1;    % Print progress in cmd window every timestep. Default: true.
+    verboseOptions.printProgress = 0;    % Print progress in cmd window every timestep. Default: true.
     % Setting Animate to 0 speeds up simulation
     verboseOptions.Animate       = 0;   % Plot flow fields every [X] iterations (0: no plots). Default: 10.
     verboseOptions.plotMesh      = 0;    % Plot mesh, turbine locations, and print grid offset values. Default: false.
@@ -105,7 +105,7 @@ function total_avg_power = WFSim_simulation_use(yaw_angles)
     
     % Pre-allocate the new control input arrays to match the size
     turbInputSet.phi = zeros(Wp.turbine.N, NN + 1); % can be set to 0 as will be set later
-    turbInputSet.CT_prime = turbInputSet.CT_prime(:, 1:(NN+1));
+    turbInputSet.CT_prime = ones(Wp.turbine.N, NN + 1) * 2; % Set CT_prime to 2 for all turbines
     turbInputSet.t = 0:NN;
     
     
